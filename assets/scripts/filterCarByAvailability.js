@@ -6,9 +6,8 @@ function filterCarByAvailability(cars) {
   // Tempat penampungan hasil
   const result = [];
 
-getCars = new getCars();
-result.push(getCars);
-
+  // Tulis code-mu disini
+  
   // Rubah code ini dengan array hasil filter berdasarkan availablity
   return result;
 }
