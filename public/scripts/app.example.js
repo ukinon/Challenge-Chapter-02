@@ -2,7 +2,7 @@ class App {
   constructor() {
     this.loadButton = document.getElementById("load-btn");
     this.carContainerElement = document.getElementById("cars-container");
-    this.jumlahInput = document.getElementById("jumlah"); // Get the input element
+    this.jumlahInput = document.getElementById("jumlah");
   }
 
   async init() {
@@ -10,7 +10,7 @@ class App {
   }
 
   showCars = async () => {
-    const val = parseInt(this.jumlahInput.value); // Get the value from the input
+    const val = parseInt(this.jumlahInput.value);
     this.clear()
     await this.load(val);
     this.run();
@@ -26,7 +26,7 @@ class App {
 
   async load(value) {
     const cars = await Binar.listCars((car) => {
-      return car.capacity === value;
+      return car.capacity == value && car.available == true;
     });
     Car.init(cars);
   }

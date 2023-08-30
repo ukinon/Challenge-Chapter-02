@@ -22,7 +22,6 @@ class Car {
     specs,
     availableAt,
   }) {
-    this.id = id;
     this.plate = plate;
     this.manufacture = manufacture;
     this.model = model;
@@ -31,11 +30,8 @@ class Car {
     this.capacity = capacity;
     this.description = description;
     this.transmission = transmission;
-    this.available = available;
     this.type = type;
     this.year = year;
-    this.options = options;
-    this.specs = specs;
     this.availableAt = availableAt;
   }
 
@@ -50,17 +46,23 @@ class Car {
     <p style="font-size:14px; height: 60px" class="card-text">${this.description}</p> 
 
     <div class="d-flex flex-row gap-2 align-items-center">
-    <i data-feather="users" class="opacity-50"></i>
+    <svg class="feather">
+    <use href="./scripts/feather-icons/dist/feather-sprite.svg#users" />
+  </svg>
     <p style="font-size:14px;" class="card-text">${this.capacity} Orang</p> 
     </div>
 
     <div class="d-flex flex-row gap-2 align-items-center">
-    <i data-feather="settings" class="opacity-50"></i>
+    <svg class="feather">
+    <use href="./scripts/feather-icons/dist/feather-sprite.svg#settings" />
+  </svg>
     <p style="font-size:14px;" class="card-text">${this.transmission}</p> 
     </div>
 
     <div class="d-flex flex-row gap-2 align-items-center">
-    <i data-feather="calendar" class="opacity-50"></i>
+    <svg class="feather">
+  <use href="./scripts/feather-icons/dist/feather-sprite.svg#calendar" />
+</svg>
     <p style="font-size:14px;" class="card-text">Tahun ${this.year}</p> 
     </div>
     <a href="#" class="btn rounded-1 w-100" style="background-color: #5CB85F; color: white">Pilih Mobil</a> 
