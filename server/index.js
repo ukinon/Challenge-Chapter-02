@@ -1,19 +1,43 @@
-const express = require('express');
-const path = require('path');
+const http = require("http");
+const fs = require("fs");
+const path = require("path");
+const url = require("url");
+const PUBLIC_DIRECTORY = path.join(__dirname, "../public");
+const PORT = 8000;
 
-const app = express();
-const PORT = process.env.PORT || 8080;
 
-app.use('/', express.static(path.join(__dirname, '../public')));
+const server = (req, res) => {
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/landingPage.html'));
-});
+    if (req.url === "/") {
+        req.url = "/landingPage.html"
+    } else if (req.url === '/cars') {
+        req.url = '/cariMobil.html'
+    } else {
+        req.url = req.url;
+    }
+    const parseURL = url.parse(req.url);
+    const pathName = `${parseURL.pathname}`;
+    const extension = path.parse(pathName).ext;
+    const absolutePath = path.join(PUBLIC_DIRECTORY, pathName);
 
-app.get('/cars', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/cariMobil.html'));
-});
+    const contentTypes = {
+        ".css": "text/css",
+        ".png": "image/png",
+        ".svg": "image/svg+xml",
+        ".html": "text/html",
+        ".js": "text/javascript",
+    };
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+    fs.readFile(absolutePath, (err, data) => {
+        if (err) {
+            res.statusCode = 500;
+            res.end("File not found ...");
+        } else {
+            res.setHeader("Content-Type", contentTypes[extension] || "text/plain");
+            res.end(data);
+        }
+    });
+}
+
+http.createServer(server).listen(PORT);
+console.log(`Server is running ... PORT : localhost:${PORT}`);

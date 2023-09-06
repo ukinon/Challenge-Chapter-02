@@ -2,17 +2,21 @@ class App {
   constructor() {
     this.loadButton = document.getElementById("load-btn");
     this.carContainerElement = document.getElementById("cars-container");
-    this.jumlahInput = document.getElementById("jumlah");
+    this.jumlahPenumpang = document.getElementById("jumlah");
+    this.tanggal = document.getElementById("tanggal")
+    this.waktuJemput = document.getElementById("waktu");
+    this.tipeDriver = document.getElementById("tipe");
   }
 
   async init() {
+    this.showCars;
     this.loadButton.onclick = this.showCars;
+    document.addEventListener('DOMContentLoaded') = this.showCars;
   }
 
   showCars = async () => {
-    const val = parseInt(this.jumlahInput.value);
     this.clear()
-    await this.load(val);
+    await this.load();
     this.run();
   };
 
@@ -24,9 +28,13 @@ class App {
     });
   };
 
-  async load(value) {
-    const cars = await Binar.listCars((car) => {
-      return car.capacity == value && car.available == true;
+  async load() {
+    const cars = await Binar.listCars((data) => {
+      const tanggalJemputData = new Date(data.availableAt).getTime()
+      const tanggal = new Date(`${this.tanggal.value} ${this.waktuJemput.value}`).getTime()
+      return data.capacity >= this.jumlahPenumpang.value &&
+      tanggalJemputData >= tanggal &&
+      data.available.toString() == this.tipeDriver.value;
     });
     Car.init(cars);
   }

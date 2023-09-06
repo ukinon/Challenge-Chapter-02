@@ -34,21 +34,21 @@
 
 <div class="offcanvas-lg w-50 offcanvas-end" tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel" style="height: 80%;">
   <div class="offcanvas-header">
-    <a href="#hero" class="offcanvas-title" id="offcanvasResponsiveLabel">BCR</a>
+    <a href="/#hero" class="offcanvas-title" id="offcanvasResponsiveLabel">BCR</a>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body justify-content-sm-end me-sm-5">
     <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center anchor">
-        <a href="#service" class="navLink">
+        <a href="/#service" class="navLink">
             <button type="button" class="border-0 p-0" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive" aria-label="Close">Our Services</button>
         </a>
-        <a href="#whyUs" class="navLink">
+        <a href="/#whyUs" class="navLink">
             <button type="button" class="border-0 p-0" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive" aria-label="Close">Why Us</button>
         </a>
-        <a href="#testi" class="navLink">
+        <a href="/#testi" class="navLink">
             <button type="button" class="border-0 p-0" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive" aria-label="Close">Testimony</button>
         </a>
-        <a href="#faq" class="navLink">
+        <a href="/#faq" class="navLink">
             <button type="button" class="border-0 p-0" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive" aria-label="Close">FAQ</button>
         </a>
         <a style="width: fit-content; height: auto; background-color: #5CB85F; margin-right: 40px;" type="button" class="btn text-white rounded-1">Register</a>
@@ -76,9 +76,9 @@
         <div class="d-flex flex-column w-100 justify-content-between">
             <label for="tipe">Tipe Driver</label>
             <select class="form-select form-select-sm p-2 input" style="font-size: small;" id="tipe" aria-label="Default select example">
-              <option value="">Pilih Tipe Driver</option>
-              <option value="dengan sopir">Dengan Sopir</option>
-              <option value="tanpa sopir">Tanpa Sopir (Lepas Kunci)</option>
+              <option value="default">Pilih Tipe Driver</option>
+              <option value="true">Dengan Sopir</option>
+              <option value="false">Tanpa Sopir (Lepas Kunci)</option>
             </select> 
           </div>
   
@@ -92,7 +92,7 @@
           <div class="d-flex flex-column w-100 justify-content-between">
             <label for="waktu">Waktu Jemput/Ambil</label>
             <select style="font-size: small;" class="form-select form-select-sm p-2 input" id="waktu" aria-label="Default select example">
-              <option selected>Pilih Waktu</option>
+              <option selected value="false">Pilih Waktu</option>
               <option value="08:00">08:00 WIB</option>
               <option value="09:00">09:00 WIB</option>
               <option value="10:00">10:00 WIB</option>

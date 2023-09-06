@@ -30,8 +30,11 @@ class Car {
     this.capacity = capacity;
     this.description = description;
     this.transmission = transmission;
+    this.available = available;
     this.type = type;
     this.year = year;
+    this.options = options;
+    this.specs = specs;
     this.availableAt = availableAt;
   }
 
