@@ -32,6 +32,7 @@ class App {
     const cars = await Binar.listCars((data) => {
       const tanggalJemputData = new Date(data.availableAt).getTime()
       const tanggal = new Date(`${this.tanggal.value} ${this.waktuJemput.value}`).getTime()
+      
       return data.capacity >= this.jumlahPenumpang.value &&
       tanggalJemputData >= tanggal &&
       data.available.toString() == this.tipeDriver.value;
