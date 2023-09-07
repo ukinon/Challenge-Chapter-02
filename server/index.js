@@ -9,7 +9,7 @@ const PORT = 8000;
 const server = (req, res) => {
 
     if (req.url === "/") {
-        req.url = "/landingPage.html"
+        req.url = "/index.html"
     } else if (req.url === '/cars') {
         req.url = '/cariMobil.html'
     } else {
